@@ -10,6 +10,19 @@ class App {
 
       MissionUtils.Console.print(`입력된 차량: ${carNames.join(", ")}`);
       MissionUtils.Console.print(`시도 횟수: ${tryCount}`);
+
+      for (let i = 0; i < tryCount; i++) {
+            for (let j = 0; j < carNames.length; j++) {
+              const name = carNames[j].trim();
+              const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
+              let result = "";
+              if (randomNumber >= 4) {
+                result = "-";
+              }
+              MissionUtils.Console.print(name + " : " + result);
+            }
+            MissionUtils.Console.print("");
+          }
   }
 }
 
