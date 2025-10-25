@@ -19,18 +19,26 @@ class App {
         throw new Error("[ERROR] 시도 횟수는 1 이상의 숫자여야 합니다.");
       }
 
+      const scores = {};
+      carNames.forEach((name) => (scores[name] = 0));
+
       for (let i = 0; i < tryCount; i++) {
-            for (let j = 0; j < carNames.length; j++) {
-              const name = carNames[j].trim();
-              const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
-              let result = "";
-              if (randomNumber >= 4) {
-                result = "-";
-              }
-              MissionUtils.Console.print(name + " : " + result);
-            }
-            MissionUtils.Console.print("");
+        for (let j = 0; j < carNames.length; j++) {
+          const name = carNames[j].trim();
+          const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
+          let result = "";
+          if (randomNumber >= 4) {
+            result = "-";
+            scores[name] += 1;
           }
+          MissionUtils.Console.print(name + " : " + result);
+        }
+        MissionUtils.Console.print("");
+      }
+      const maxScore = Math.max(...Object.values(scores));
+      const winners = Object.keys(scores).filter((name) => scores[name] === maxScore);
+
+      MissionUtils.Console.print("최종 우승자 : " + winners.join(", "));
   }
 }
 
