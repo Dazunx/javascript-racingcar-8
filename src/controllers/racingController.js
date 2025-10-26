@@ -3,9 +3,13 @@ import { Car } from "../models/racingCar.js";
 import { showRoundResult, showWinner } from "../views/racingView.js";
 
 export async function startGame() {
-  const carNamesInput = await MissionUtils.Console.readLineAsync("경주할 자동차 이름(이름은 쉼표(,) 기준으로 구분): ");
-  const tryCountInput = await MissionUtils.Console.readLineAsync("시도할 횟수: ");
-  const tryCount = Number(tryCountInput);
+    const carNamesInput = await MissionUtils.Console.readLineAsync(
+      "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
+    );
+    const tryCountInput = await MissionUtils.Console.readLineAsync(
+      "시도할 횟수는 몇 회인가요?"
+    );
+    const tryCount = Number(tryCountInput);
 
   const carNames = carNamesInput.split(",").map((name) => name.trim());
   carNames.forEach((name) => {
