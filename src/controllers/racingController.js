@@ -1,6 +1,6 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
-import { Car } from "../models/carStatus.js";
-import { showRoundResult, showWinner } from "../views/consoleView.js";
+import { Car } from "../models/racingCar.js";
+import { showRoundResult, showWinner } from "../views/racingView.js";
 
 export async function startGame({ shouldPrint = true } = {}) {
   const carNamesInput = await MissionUtils.Console.readLineAsync("경주할 자동차 이름(이름은 쉼표(,) 기준으로 구분): ");

@@ -1,4 +1,4 @@
-import { startGame } from "./controllers/gameManager.js";
+import { startGame } from "./controllers/racingController.js";
 
 class App {
   async run() {
