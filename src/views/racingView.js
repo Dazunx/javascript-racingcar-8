@@ -1,9 +1,9 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 
 export function showRoundResult(cars) {
-  cars.forEach((car) => {
+  for (const car of cars) {
     MissionUtils.Console.print(`${car.name} : ${"-".repeat(car.position)}`);
-  });
+  }
   MissionUtils.Console.print("");
 }
 
